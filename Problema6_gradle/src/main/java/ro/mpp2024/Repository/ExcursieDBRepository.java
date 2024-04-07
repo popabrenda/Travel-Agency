@@ -84,7 +84,7 @@ public class ExcursieDBRepository implements IExcursieRepository {
                     int oraPlecare = result.getInt("oraPlecare");
                     int locuriDisponibile = result.getInt("locuriDisponibile");
                     int pret = result.getInt("pret");
-                    Excursie excursie = new Excursie(id,obiectiv, firmaTransport, oraPlecare, pret,locuriDisponibile);
+                    Excursie excursie = new Excursie(obiectiv, firmaTransport, oraPlecare, pret,locuriDisponibile);
                     excursie.setId(id);
                     excursii.add(excursie);
                 }
@@ -113,7 +113,7 @@ public class ExcursieDBRepository implements IExcursieRepository {
                     int locuriDisponibile = result.getInt("locuriDisponibile");
                     int pret = result.getInt("pret");
                     logger.trace("Found excursie with id {} obiectiv {} firmaTransport {} oraPlecare {} locuriDisponibile {} pret {}", id1, obiectiv, firmaTransport, oraPlecare, locuriDisponibile, pret);
-                    excursie = new Excursie(id,obiectiv, firmaTransport, oraPlecare, locuriDisponibile, pret);
+                    excursie = new Excursie(obiectiv, firmaTransport, oraPlecare, locuriDisponibile, pret);
                     excursie.setId(id1);
                 }
             }

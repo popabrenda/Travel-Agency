@@ -50,17 +50,11 @@ public class Service {
     }
     public void rezervare(Client client, Excursie excursie, int nrLocuri) throws RuntimeException {
 
-        int id = 0;
-        for (Rezervare rezervare : rezervareRepository.findAll()) {
-            if(rezervare.getId()>id)
-                id = rezervare.getId();
-        }
-        id++;
         if (excursie.getLocuriDisponibile() < nrLocuri)
             throw new RuntimeException("Nu sunt suficiente locuri");
         else {
-            excursie.setLocuriDisponibile(excursie.getLocuriDisponibile() - nrLocuri);
-            rezervareRepository.add(new Rezervare(id, client, excursie, nrLocuri));
+            //excursie.setLocuriDisponibile(excursie.getLocuriDisponibile() - nrLocuri);
+            rezervareRepository.add(new Rezervare(client, excursie, nrLocuri));
         }
 
     }

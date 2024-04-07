@@ -325,7 +325,21 @@ public class CautareFX extends Application {
                 } else {
                     try {
                         Excursie excursie = excursieRepository.findOne(idExcursie);
-                        service.rezervare(client, excursie, numarBilete);
+                        if (excursie.getLocuriDisponibile() < numarBilete) {
+                            Alert alert = new Alert(Alert.AlertType.ERROR);
+                            alert.setTitle("Error");
+                            alert.setHeaderText("Not enough available seats");
+                            alert.showAndWait();
+                        }
+                        else if (excursie == null)
+                        {
+                            Alert alert = new Alert(Alert.AlertType.ERROR);
+                            alert.setTitle("Error");
+                            alert.setHeaderText("Excursie not found");
+                            alert.showAndWait();
+                        }
+                        else service.rezervare(client, excursie, numarBilete);
+
                     } catch (RuntimeException e) {
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setTitle("Error");

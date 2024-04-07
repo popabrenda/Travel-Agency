@@ -1,13 +1,14 @@
 package ro.mpp2024.Domain;
 
-public class Rezervare extends Entity {
+public class Rezervare implements IEntity<Integer> {
     private Client client;
     private Excursie excursie;
     private int nrBilete;
+    private int id;
 
     //private int id;
-    public Rezervare(int id, Client client, Excursie excursie, int nrBilete) {
-        super(id);
+    public Rezervare( Client client, Excursie excursie, int nrBilete) {
+
         this.client = client;
         this.excursie = excursie;
         this.nrBilete = nrBilete;

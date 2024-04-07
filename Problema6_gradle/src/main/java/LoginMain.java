@@ -1,3 +1,5 @@
+import ro.mpp2024.Domain.Client;
+import ro.mpp2024.Domain.Excursie;
 import ro.mpp2024.Service.Service;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -67,6 +69,7 @@ public class LoginMain extends Application
         Service service = new Service(clientRepository, excursieRepository, rezervareRepository, utilizatorRepository);
 
         BorderPane root = new BorderPane();
+
 
         AnchorPane leftAnchorPane = new AnchorPane();
         leftAnchorPane.setPrefSize(200, 200);

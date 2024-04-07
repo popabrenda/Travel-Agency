@@ -42,16 +42,16 @@ public class RezervareDBRepository implements IRezervareRepository {
     public void add(Rezervare entity) {
         logger.traceEntry("saving rezervare {} ", entity);
         Connection con = dbUtils.getConnection();
-        try (PreparedStatement preStmt = con.prepareStatement("insert into Rezervari1(id, idClient, idExcursie, nrBilete) values (?,?,?,?)")) {
-            preStmt.setInt(1, entity.getId());
-            preStmt.setInt(2, entity.getClient().getId());
-            preStmt.setInt(3, entity.getExcursie().getId());
-            preStmt.setInt(4, entity.getNrBilete());
+        try (PreparedStatement preStmt = con.prepareStatement("insert into Rezervari1(idClient, idExcursie, nrBilete) values (?,?,?)")) {
+            preStmt.setInt(1, entity.getClient().getId());
+            preStmt.setInt(2, entity.getExcursie().getId());
+            preStmt.setInt(3, entity.getNrBilete());
             if (entity.getExcursie().getLocuriDisponibile() < entity.getNrBilete())
                 throw new RuntimeException("Nu sunt suficiente locuri");
 
             int result1 = preStmt.executeUpdate();
-            entity.getExcursie().setLocuriDisponibile(entity.getExcursie().getLocuriDisponibile() - entity.getNrBilete());
+            System.out.println(result1);
+            //entity.getExcursie().setLocuriDisponibile(entity.getExcursie().getLocuriDisponibile() - entity.getNrBilete());
 
             try (var updateStmt = con.prepareStatement("update Excursii set locuriDisponibile = locuriDisponibile - ? where id = ?")) {
                 updateStmt.setInt(1, entity.getNrBilete());
@@ -60,14 +60,16 @@ public class RezervareDBRepository implements IRezervareRepository {
                 if (rowsAffected == 0) {
                     throw new Exception("Trip not found");
                 }
-                int result = preStmt.executeUpdate();
+                int result = updateStmt.executeUpdate();
                 if (result > 0) {
                     logger.traceExit();
                 }
+
             }
         } catch (Exception e) {
             logger.error(e);
             System.out.println("Error DB " + e);
+            e.printStackTrace();
         }
     }
     @Override
@@ -93,7 +95,7 @@ public class RezervareDBRepository implements IRezervareRepository {
                     int nrBilete = result.getInt("nrBilete");
                     Client client = clientDBRepository.findOne(idClient);
                     Excursie excursie = excursieDBRepository.findOne(idExcursie);
-                    Rezervare rezervare = new Rezervare(id, client, excursie, nrBilete);
+                    Rezervare rezervare = new Rezervare( client, excursie, nrBilete);
                     rezervari.add(rezervare);
                 }
             }
@@ -116,7 +118,7 @@ public class RezervareDBRepository implements IRezervareRepository {
                     int nrBilete = result.getInt("nrBilete");
                     Client client = clientDBRepository.findOne(idClient);
                     Excursie excursie = excursieDBRepository.findOne(idExcursie);
-                    Rezervare rezervare = new Rezervare(id, client, excursie, nrBilete);
+                    Rezervare rezervare = new Rezervare( client, excursie, nrBilete);
                     rezervari.add(rezervare);
                 }
             }

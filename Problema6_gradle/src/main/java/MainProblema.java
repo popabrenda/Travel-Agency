@@ -28,13 +28,15 @@ public class MainProblema {
 
         Client c1 = clientDBRepository.findOne(32);
         Excursie e1 = excursieDBRepository.findOne(22);
-        Rezervare r1 = new Rezervare(3, c1, e1, 2);
-        rezervareDBRepository.add(r1);
+        Rezervare r1 = new Rezervare(c1, e1, 2);
+        //rezervareDBRepository.add(r1);
 
-        Client c2 = new Client(33, "Popescu", "1234567890123");
-        Excursie e2 = new Excursie(23, "Bucuresti", "Buctur", 10, 1900, 19);
-        Rezervare r2 = new Rezervare(4, c2, e2, 3);
-        rezervareDBRepository.add(r2);
+        Client c2 = new Client( "a", "1");
+        clientDBRepository.add(c2);
+        Excursie e2 = new Excursie( "a", "Buctur", 10, 1900, 19);
+        excursieDBRepository.add(e2);
+        Rezervare r2 = new Rezervare( c2, e2, 3);
+        //rezervareDBRepository.add(r2);
 
 
         Iterable<Client> clienti = clientDBRepository.findAll();

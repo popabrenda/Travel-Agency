@@ -86,7 +86,7 @@ public class ClientDBRepository implements IClientRepository {
                     String nume = result.getString("nume");
                     String nrTelefon = result.getString("nrTelefon");
                     logger.trace("Found client with id {} nume {} nrTelefon {}", id, nume, nrTelefon);
-                    client = new Client(id,nume, nrTelefon);
+                    client = new Client(nume, nrTelefon);
                     client.setId(id);
                     //System.out.println("repo: clientul gasit in functia find one" + client);
 
@@ -111,7 +111,7 @@ public class ClientDBRepository implements IClientRepository {
                     int id = result.getInt("id");
                     String nume = result.getString("nume");
                     String nrTelefon = result.getString("nrTelefon");
-                    Client client = new Client(id, nume, nrTelefon);
+                    Client client = new Client( nume, nrTelefon);
                     client.setId(id);
                     clienti.add(client);
                 }

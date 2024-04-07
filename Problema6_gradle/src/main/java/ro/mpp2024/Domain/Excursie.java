@@ -1,6 +1,6 @@
 package ro.mpp2024.Domain;
 
-public class Excursie extends Entity {
+public class Excursie implements IEntity<Integer> {
     private String obiectiv;
     private String firmaTransport;
     private int oraPlecare;
@@ -9,8 +9,7 @@ public class Excursie extends Entity {
 
     private int id;
 
-    public Excursie( int id, String obiectiv, String firmaTransport, int oraPlecare, int pret, int locuriDisponibile) {
-        super(id);
+    public Excursie(String obiectiv, String firmaTransport, int oraPlecare, int pret, int locuriDisponibile) {
         this.obiectiv = obiectiv;
         this.firmaTransport = firmaTransport;
         this.oraPlecare = oraPlecare;

@@ -1,12 +1,11 @@
 package ro.mpp2024.Domain;
 
-public class Client extends Entity {
+public class Client implements IEntity<Integer> {
     private String nume;
     private String nrTelefon;
     private int id;
 
-    public Client(int id,String nume, String nrTelefon) {
-        super(id);
+    public Client(String nume, String nrTelefon) {
         this.nume = nume;
         this.nrTelefon = nrTelefon;
     }
