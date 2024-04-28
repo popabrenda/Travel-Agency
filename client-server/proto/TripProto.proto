@@ -1,0 +1,66 @@
+syntax="proto3";
+package proto;
+
+option java_package = "org.example.protobuffprotocol";
+option java_outer_classname = "TripProtocol";
+
+//option java_multiple_files = true;
+
+message Utilizator {
+  string username = 1;
+  string password = 2;
+}
+
+message FilterDTO {
+  string obiectivTuristic = 1;
+  string deLa = 2;
+  string panaLa = 3;
+}
+
+message RezervareDTO {
+  string numeClient = 1;
+  string telefonClient = 2;
+  int32 numarLocuri = 3;
+  int32 username = 4;
+}
+
+message ExcursieDTO {
+  int32 id = 1;
+  string obiectivTuristic = 2;
+  string firmaTransport = 3;
+  string oraPlecarii = 4;
+  double pret = 5;
+  int32 numarLocuriDisponibile = 6;
+}
+
+message Request {
+  enum RequestType {
+    LOGIN = 0;
+    LOGOUT = 1;
+    REGISTER = 2;
+    GET_TRIPS = 3;
+    GET_TRIPS_FILTERED = 4;
+    RESERVATION = 5;
+  }
+  RequestType type = 1;
+  oneof data{
+    Utilizator utilizator = 2;
+    string username = 3;
+    FilterDTO filter = 4;
+    RezervareDTO rezervare = 5;
+  }
+}
+
+message Response {
+  enum ReponseType{
+    OK = 0;
+    ERROR = 1;
+    GET_TRIPS = 2;
+    GET_TRIPS_FILTERED = 3;
+    UPDATE = 4;
+  }
+  ReponseType type = 1;
+  string error = 2;
+  Utilizator utilizator = 3;
+  repeated ExcursieDTO excursii = 4;
+}

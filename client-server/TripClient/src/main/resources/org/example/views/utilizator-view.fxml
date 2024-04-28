@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane prefHeight="823.0" prefWidth="1032.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.UtilizatorController">
+    <children>
+        <GridPane alignment="CENTER" layoutX="224.0" layoutY="142.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <GridPane fx:id="gridMain" alignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="180.00000762939453" minHeight="10.0" prefHeight="180.00000762939453" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="103.0" minHeight="10.0" prefHeight="29.000015258789034" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="154.99998474121094" minHeight="7.333333333333371" prefHeight="7.333333333333371" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="217.0" minHeight="10.0" prefHeight="185.33333333333337" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="88.0" minHeight="10.0" prefHeight="87.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <TableView fx:id="tabelMain" prefHeight="151.0" prefWidth="794.0">
+                            <columns>
+                                <TableColumn fx:id="coloanaMainObiectiv" prefWidth="75.0" text="Obiectiv Turistic" />
+                                <TableColumn fx:id="coloanaMainFirma" prefWidth="75.0" text="Firma de Transport" />
+                        <TableColumn fx:id="coloanaMainOra" prefWidth="75.0" text="Ora Plecarii" />
+                        <TableColumn fx:id="coloanaMainPret" prefWidth="75.0" text="Pret" />
+                        <TableColumn fx:id="coloanaMainLocuri" prefWidth="75.0" text="Numar Locuri" />
+                            </columns>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                            </columnResizePolicy>
+                        </TableView>
+                  <GridPane GridPane.rowIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <ComboBox fx:id="comboDeLa" prefWidth="150.0" promptText="De la" GridPane.columnIndex="1" />
+                        <ComboBox fx:id="comboPanaLa" prefWidth="150.0" promptText="Pana la" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label style="-fx-background-color: #fccf2b;" text="Obiectiv Turistic" />
+                        <TextField fx:id="fieldObiectiv" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+                  <Button fx:id="butonCauta" mnemonicParsing="false" onAction="#handleCauta" style="-fx-background-color: #fccf2b" text="Cauta" GridPane.rowIndex="2" />
+                  <TableView fx:id="tabelSecundar" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
+                     <columns>
+                        <TableColumn fx:id="coloanaSecundarObiectiv" prefWidth="75.0" text="Obiectiv Turistic" />
+                        <TableColumn fx:id="coloanaSecundarFirme" prefWidth="75.0" text="Firma de Transport" />
+                        <TableColumn fx:id="coloanaSecundarOra" prefWidth="75.0" text="Ora Plecarii" />
+                        <TableColumn fx:id="coloanaSecundarPret" prefWidth="75.0" text="Pret" />
+                        <TableColumn fx:id="coloanaSecundarLocuri" prefWidth="75.0" text="Numar Locuri" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <GridPane fx:id="gridRezerva" GridPane.rowIndex="4">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label style="-fx-background-color: #fccf2b" text="Nume" />
+                        <Label style="-fx-background-color: #fccf2b;" text="Telefon" GridPane.rowIndex="1" />
+                        <Label style="-fx-background-color: #fccf2b;" text="Numar Bilete" GridPane.rowIndex="2" />
+                        <TextField fx:id="fieldNume" GridPane.columnIndex="1" />
+                        <TextField fx:id="fieldTelefon" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Spinner fx:id="spinnerBilete" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button mnemonicParsing="false" onAction="#handleRezerva" style="-fx-text-fill: #171512;" text="Rezerva" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                        <Button mnemonicParsing="false" onAction="#handleCancel" style="-fx-text-fill: #271f1f;" text="Cancel" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" />
+                     </children>
+                  </GridPane>
+                    </children>
+                </GridPane>
+            <GridPane fx:id="gridInitial">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                </rowConstraints>
+                <children>
+                    <GridPane fx:id="gridLogin" alignment="CENTER" prefHeight="400.0" prefWidth="600.0">
+                        <columnConstraints>
+                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        </rowConstraints>
+                        <children>
+                            <TextField fx:id="usernameLogin" alignment="CENTER" promptText="USERNAME" GridPane.rowIndex="1" />
+                            <Label alignment="CENTER" prefHeight="17.0" prefWidth="112.0" style="-fx-background-color: #fccf2b;" text="Please LogIn" textAlignment="CENTER" GridPane.halignment="CENTER" />
+                            <PasswordField fx:id="passwordLogin" alignment="CENTER" promptText="PASSWORD" GridPane.rowIndex="2" />
+                            <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                <buttons>
+                                    <Button fx:id="registerRequest" mnemonicParsing="false" onAction="#handlerRegisterRequest" prefHeight="25.0" prefWidth="394.0" style="-fx-background-color: #fccf2b;" text="REGISTER" />
+                                    <Button fx:id="loginButton" alignment="CENTER" defaultButton="true" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#handleLogin" prefHeight="25.0" prefWidth="162.0" style="-fx-background-color: #fccf2b;" text="LOGIN" textAlignment="CENTER" />
+                                </buttons>
+                            </ButtonBar>
+                        </children>
+                    </GridPane>
+                    <GridPane fx:id="gridRegister" layoutX="112.0" layoutY="82.0" prefHeight="381.0" prefWidth="895.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" GridPane.rowIndex="1">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        </rowConstraints>
+                        <children>
+                            <Label style="-fx-background-color: #fccf2b;" text="Nume Utilizator" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                            <Label style="-fx-background-color: #fccf2b;" text="Username" GridPane.halignment="CENTER" />
+                            <Label style="-fx-background-color: #fccf2b;" text="Password" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                            <TextField fx:id="usernameRegister" GridPane.columnIndex="1" />
+                            <TextField fx:id="numeTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                            <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                            <Button fx:id="saveButton" mnemonicParsing="false" onAction="#handlerSave" prefHeight="25.0" prefWidth="136.0" style="-fx-background-color: #fccf2b;" text="Register" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#handlerCancel" prefHeight="25.0" prefWidth="130.0" style="-fx-background-color: #fccf2b;" text="Cancel" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" />
+                        </children>
+                    </GridPane>
+                </children>
+            </GridPane>
+            </children>
+        </GridPane>
+    </children>
+</AnchorPane>

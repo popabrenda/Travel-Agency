@@ -1,0 +1,9 @@
+rootProject.name = 'TripApplication'
+include 'TripModel'
+include 'TripPersistence'
+include 'TripService'
+include 'TripServer'
+include 'TripNetworking'
+include 'TripClient'
+include 'TripNetworkingProto'
+
