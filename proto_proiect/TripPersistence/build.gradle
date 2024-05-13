@@ -1,0 +1,43 @@
+//plugins {
+//    id 'java'
+//}
+//
+//group = 'org.example'
+//version = '1.0-SNAPSHOT'
+//
+//repositories {
+//    mavenCentral()
+//}
+//
+//plugins{
+//    id 'java'
+//}
+
+
+dependencies {
+//    implementation project(path: ':')
+//    testImplementation platform('org.junit:junit-bom:5.9.1')
+//    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.23.0'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.23.0'
+    implementation group: 'org.xerial', name: 'sqlite-jdbc', version: '3.45.1.0'
+    implementation project (':TripModel')
+
+    implementation 'org.hibernate.orm:hibernate-core:6.4.4.Final'
+
+    implementation 'org.hibernate.validator:hibernate-validator:8.0.0.Final'
+    implementation 'org.glassfish:jakarta.el:4.0.2'
+
+    implementation 'org.hibernate.orm:hibernate-core:6.4.4.Final'
+
+    implementation 'org.hibernate.orm:hibernate-community-dialects:6.4.4.Final'
+
+
+    implementation 'org.projectlombok:lombok:1.18.30'
+    implementation group: 'com.zsoltfabok', name: 'sqlite-dialect', version: '1.0'
+
+}
+
+test {
+    useJUnitPlatform()
+}

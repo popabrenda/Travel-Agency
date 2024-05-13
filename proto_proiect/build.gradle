@@ -1,0 +1,38 @@
+allprojects {
+    apply plugin: 'java'
+
+    group = 'org.example'
+    version = '1.0-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        testImplementation platform('org.junit:junit-bom:5.9.1')
+        testImplementation 'org.junit.jupiter:junit-jupiter'
+        implementation group: 'com.google.protobuf', name: 'protobuf-java', version: '4.26.1'
+
+        implementation 'org.hibernate.orm:hibernate-core:6.4.4.Final'
+
+        implementation 'org.hibernate.validator:hibernate-validator:8.0.0.Final'
+        implementation 'org.glassfish:jakarta.el:4.0.2'
+
+        implementation 'org.hibernate.orm:hibernate-core:6.4.4.Final'
+
+        implementation 'org.hibernate.orm:hibernate-community-dialects:6.4.4.Final'
+
+
+        implementation 'org.projectlombok:lombok:1.18.30'
+        implementation group: 'com.zsoltfabok', name: 'sqlite-dialect', version: '1.0'
+
+    }
+    // Other configurations common to all projects, if needed
+    test {
+        useJUnitPlatform()
+    }
+}
+
+//subprojects {
+//    // Other configurations specific to subprojects, if needed
+//}
